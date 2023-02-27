@@ -12,7 +12,7 @@ License: `MIT`
 - full access to the form object for the easy customization;
 - rendering of standard validation errors (required, min, max, ...), which you can simply tweak to your liking;
 
-Check out our docs [here](https://uiwebkit.com/wgt/tabs/1/).
+Check out our docs [here](https://uformng.web.app/).
 
 ## How to connect?
 
@@ -24,7 +24,13 @@ Then you need to add a dependency into your Angular Module:
 
 ```
 @NgModule({
-  imports: [UniFormModule]
+  imports: [
+    BrowserAnimationsModule,
+    HttpClientModule,
+
+    UniFormModule,
+  ],
+  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' }}] // optional
 })
 ```
 

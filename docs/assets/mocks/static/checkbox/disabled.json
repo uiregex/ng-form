@@ -1,6 +1,0 @@
-{
-  "type": "checkbox",
-  "key": "checkbox",
-  "label": "Disabled checkbox",
-  "disabled": true
-}

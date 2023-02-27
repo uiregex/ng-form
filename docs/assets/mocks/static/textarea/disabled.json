@@ -1,6 +1,0 @@
-{
-  "type": "textarea",
-  "key": "textarea",
-  "label": "Disabled textarea field",
-  "disabled": true
-}

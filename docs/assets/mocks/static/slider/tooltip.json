@@ -1,6 +1,0 @@
-{
-  "type": "slider",
-  "key": "slider",
-  "label": "Slider with tooltip:",
-  "tooltip": true
-}

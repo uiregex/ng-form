@@ -1,7 +1,0 @@
-{
-  "type": "text",
-  "key": "text",
-  "label": "Text field with minimum and maximum length",
-  "minLength": 2,
-  "maxLength": 3
-}

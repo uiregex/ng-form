@@ -1,6 +1,0 @@
-{
-  "type": "datepicker",
-  "key": "datepicker",
-  "label": "Required datepicker",
-  "required": true
-}

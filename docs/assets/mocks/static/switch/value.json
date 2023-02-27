@@ -1,6 +1,0 @@
-{
-  "type": "switch",
-  "key": "switch",
-  "label": "Switch with default value",
-  "value": true
-}

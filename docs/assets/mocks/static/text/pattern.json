@@ -1,7 +1,0 @@
-{
-  "type": "text",
-  "key": "text",
-  "label": "Text field with pattern validation",
-  "pattern": "[a-zA-Z]*",
-  "hint": "Must be latin letters only"
-}

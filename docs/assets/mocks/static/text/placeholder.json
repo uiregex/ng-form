@@ -1,6 +1,0 @@
-{
-  "type": "text",
-  "key": "text",
-  "label": "Text field with placeholder",
-  "placeholder": "Default placeholder"
-}
