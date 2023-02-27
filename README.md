@@ -12,6 +12,8 @@ License: `MIT`
 - full access to the form object for the easy customization;
 - rendering of standard validation errors (required, min, max, ...), which you can simply tweak to your liking;
 
+Check out our docs [here](https://uiwebkit.com/wgt/tabs/1/).
+
 ## How to connect?
 
 Run: `npm i uni-form-ng`
