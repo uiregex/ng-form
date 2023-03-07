@@ -1,6 +1,14 @@
 <uni-form-ng (formGroupEvent)='handleForm($event)' (submitEvent)='onFormSubmit($event)'>
 
-  <uni-form-field-ng [url]="'assets/mocks/static/text/label.json'"></uni-form-field-ng>
+  <uni-form-field-ng
+    [hasSuffix]='true'
+    [url]="'assets/mocks/static/text/label.json'"
+    [options]='{type: hide ? "password" : "text"}'
+  >
+    <button mat-icon-button suffix (click)='test($event)'>
+      <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </uni-form-field-ng>
 
   <uni-form-field-ng
     [url]="'assets/mocks/static/text/default.json'"

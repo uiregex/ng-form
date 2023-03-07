@@ -4,7 +4,10 @@
   [formGroup]='formGroup'
   [hasPrefix]='hasPrefix'
   [hasSuffix]='hasSuffix'
-></uni-text-mat>
+>
+  <ng-content select='[prefix]' ngProjectAs='[prefix]'></ng-content>
+  <ng-content select='[suffix]' ngProjectAs='[suffix]'></ng-content>
+</uni-text-mat>
 
 <ng-container [ngSwitch]='field.type'>
   <uni-number-mat
@@ -33,7 +36,7 @@
 
   <ng-container *ngSwitchCase='"switch"'>
     <div [formGroup]='formGroup'>
-      <mat-slide-toggle [formControlName]='field.key' class='py-2'>
+      <mat-slide-toggle [formControlName]='field.key' class='py-3'>
         <span class='uni-pointer'>{{ field.label }}</span>
       </mat-slide-toggle>
     </div>

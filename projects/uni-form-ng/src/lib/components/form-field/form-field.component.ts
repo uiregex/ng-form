@@ -1,4 +1,13 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs';
@@ -16,7 +25,7 @@ import { UniFormFieldService } from './form-field.service';
   templateUrl: 'form-field.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
+export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnChanges {
 
   @Input()
   url: string | undefined;
@@ -100,6 +109,19 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit {
       });
     } else if (this.options?.type && this.options.key) {
       this.fields = [(this.options as UniFormField)];
+      this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['options'] && !changes['options'].firstChange) {
+      // console.log(this.fields[0]);
+      // console.log(changes['options'].currentValue);
+      this.fields[0] = {
+        ...this.fields[0],
+        ...changes['options'].currentValue
+      };
+
       this.formFieldService.dispatch(this.elRef.nativeElement, this.fields);
     }
   }
