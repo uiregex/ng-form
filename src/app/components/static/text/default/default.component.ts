@@ -7,14 +7,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class AppStaticTextDefaultComponent {
 
-  hide = true;
   form: FormGroup | undefined;
-
-  test(event: any) {
-    event.preventDefault();
-
-    this.hide = !this.hide;
-  }
 
   handleForm(event: any) {
     this.form = event;
