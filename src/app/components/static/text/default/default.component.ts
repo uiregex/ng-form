@@ -12,17 +12,8 @@ export class AppStaticTextDefaultComponent {
   form: FormGroup | undefined;
   isCreate$: Observable<boolean> | undefined;
 
-  switchVisible(event: any) {
-    event.preventDefault();
-    this.hide = false;
-  }
-
   handleForm(event: any) {
     this.form = event;
-
-    if (event.controls['switch']) {
-      this.isCreate$ = event.controls['switch'].valueChanges;
-    }
   }
 
   onFormSubmit(event: any) {

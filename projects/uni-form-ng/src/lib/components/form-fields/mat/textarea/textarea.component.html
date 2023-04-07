@@ -10,13 +10,13 @@
   <mat-hint *ngIf='field.hint' align='start'>{{ field.hint }}</mat-hint>
 
   <mat-hint *ngIf='(field.minLength || field.maxLength)  && !field.hint' align='start'>
-    <ng-container *ngIf='field.minLength && !field.maxLength'>Minimum characters count is:
-      <strong>{{ field.minLength }}</strong>
+    <ng-container *ngIf='field.minLength && !field.maxLength'>
+      Minimum characters count is: <strong>{{ field.minLength }}</strong>
     </ng-container>
 
-    <ng-container *ngIf='field.minLength && field.maxLength'>Minimum characters count is:
-      <strong>{{ field.minLength }}</strong> and maximum is:
-      <strong>{{ field.maxLength }}</strong>
+    <ng-container *ngIf='field.minLength && field.maxLength'>
+      Minimum characters count is: <strong>{{ field.minLength }}</strong>
+      and maximum is: <strong>{{ field.maxLength }}</strong>
     </ng-container>
   </mat-hint>
 
