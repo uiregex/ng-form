@@ -13,7 +13,7 @@ export class UniFormService {
     });
   }
 
-  addControls(formGroup: FormGroup, fields: UniFormField[]): void {
+  addControls(formGroup: FormGroup, fields: UniFormField[]): FormGroup {
     fields.forEach((field: UniFormField) => {
       const disabled = field.disabled || false;
       const value = isDefined(field.value)
@@ -25,10 +25,10 @@ export class UniFormService {
             : '';
 
       if (field.keyEnd) {
-        formGroup.addControl(field.keyEnd, new FormControl(field.valueEnd || field.dateEnd));
+        formGroup.setControl(field.keyEnd, new FormControl(field.valueEnd || field.dateEnd));
       }
 
-      formGroup.addControl(field.key, new FormControl({ value, disabled }, [
+      formGroup.setControl(field.key, new FormControl({ value, disabled }, [
         ...(field.required ? [Validators.required] : []),
         ...(field.requiredTrue ? [Validators.requiredTrue] : []),
         ...(field.min ? [Validators.min(field.min)] : []),
@@ -38,5 +38,7 @@ export class UniFormService {
         ...(field.pattern ? [Validators.pattern(field.pattern)] : []),
       ]));
     });
+
+    return formGroup;
   }
 }
