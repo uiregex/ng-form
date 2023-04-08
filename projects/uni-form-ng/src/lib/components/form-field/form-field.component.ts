@@ -73,7 +73,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnCh
         field = this.formFieldService.enrichField(field, this.options);
         field = this.formFieldService.enrichField(field, this.nested[field.key]);
         this.fields = [field];
-        this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields);
+        this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields, 'add');
 
         if (field.fields) {
           if (isDefined(field.value)) {
@@ -111,7 +111,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnCh
       });
     } else if (this.options?.type && this.options.key) {
       this.fields = [(this.options as UniFormField)];
-      this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields);
+      this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields, 'add');
     }
   }
 
@@ -122,7 +122,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnCh
         ...changes['options'].currentValue,
       };
 
-      this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields);
+      this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields, 'set');
     }
   }
 
@@ -144,7 +144,7 @@ export class UniFormFieldComponent extends RxUnsubscribe implements OnInit, OnCh
         this.fields[urlIndex + 1] = this.formFieldService.enrichField(field, this.nested[field.key]);
         // hotfix
         this.fields = this.fields.filter(field => isObject(field));
-        this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields);
+        this.formFieldService.dispatchAdd(this.elRef.nativeElement, this.fields, 'add');
       });
     });
   }

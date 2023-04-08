@@ -8,10 +8,10 @@ import { isArray } from '../../utils/is';
 @Injectable({ providedIn: 'root' })
 export class UniFormFieldService {
 
-  dispatchAdd(el: HTMLElement, formData: UniFormField[]): void {
+  dispatchAdd(el: HTMLElement, formData: UniFormField[], mode: 'add' | 'set' = 'add'): void {
     el.dispatchEvent(new CustomEvent('uniFormDataAdd', {
       bubbles: true,
-      detail: { formData },
+      detail: { formData, mode },
     }));
   }
 

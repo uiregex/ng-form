@@ -38,7 +38,7 @@ export class UniFormComponent {
   }
 
   private onUniFormDataAddChange(event: CustomEvent) {
-    this.formGroup = this.formService.addControls(this.formGroup, [...event.detail.formData]);
+    this.formGroup = this.formService.addControls(this.formGroup, [...event.detail.formData], event.detail.mode);
 
     this.uniFormGroupEvent(this.formGroup);
     this.formGroupEvent.emit(this.formGroup);
