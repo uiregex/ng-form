@@ -13,7 +13,7 @@ export class UniFormService {
     });
   }
 
-  addControls(formGroup: FormGroup, fields: UniFormField[], mode: 'add' | 'set' = 'add'): FormGroup {
+  addControls(formGroup: FormGroup, fields: UniFormField[], mode: 'add' | 'set'): FormGroup {
     fields.forEach((field: UniFormField) => {
       const disabled = field.disabled || false;
       const value = isDefined(field.value)
@@ -24,7 +24,7 @@ export class UniFormService {
             ? []
             : '';
 
-      const methodName = mode === 'add' ? 'addControl' : 'setControl';
+      const methodName = mode === 'set'? 'setControl' : 'addControl';
 
       if (field.keyEnd) {
         formGroup[methodName](field.keyEnd, new FormControl(field.valueEnd || field.dateEnd));
